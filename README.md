@@ -58,7 +58,7 @@ Client/server optimization: FerriteCore, ModernFix.
 .devcontainer/           Java 21 + Pakku baked into the image
 pakku.json / pakku-lock.json   Pakku manifest & resolved lockfile
 overrides/               pack content: configs, FTB Quests chapters
-companion/               companion mod source (see docs/companion-mod/)
+folded-horizons-core      companion mod source — separate repo (github.com/folded-horizons/folded-horizons-core)
 docs/                    design & development docs — start at docs/INDEX.md
 ```
 
