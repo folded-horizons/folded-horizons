@@ -1,0 +1,17 @@
+# FTB Teams — team/party behavior for the compact-shared-start world.
+{
+	# Default team size before upgrades.
+	"max_team_size": 32,
+
+	# Create a party automatically on first join? false = players opt in / get invited.
+	"auto_create_party": false,
+
+	# Invitations expire after N seconds.
+	"invite_expiration": 604800,
+
+	# Allow ally teams (co-op between parties for shared machines).
+	"allow_allies": true,
+
+	# Friendly fire inside teams (off — compact space gets crowded).
+	"friendly_fire": false
+}

@@ -1,0 +1,13 @@
+{
+  "name": "GregTech Modpack (Pakku)",
+  "build": { "dockerfile": "Dockerfile" },
+  "features": {
+    "ghcr.io/devcontainers/features/common-utils:2": {},
+    "ghcr.io/devcontainers/features/java:1": {
+      "installGradle": false,
+      "installMaven": false,
+      "version": "21"
+    }
+  },
+  "forwardPorts": [25565]
+}

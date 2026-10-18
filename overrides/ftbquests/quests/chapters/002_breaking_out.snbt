@@ -1,0 +1,115 @@
+{
+	title: "Breaking Out"
+	icon: "minecraft:iron_pickaxe"
+	subtitle: "Into the root space"
+	quests: [
+		{
+			id: "7B8A2E1FD9465302"
+			title: "The Wall Opens"
+			icon: "minecraft:iron_pickaxe"
+			x: 0.0
+			y: 0.0
+			description: [
+				"With a full pickaxe and a steady hand, the sealed wall finally gives way."
+				"Beyond the cell lies your root space — the home you expand for the rest of the game."
+			]
+			tasks: {
+				task1: {
+					type: "item"
+					item: "minecraft:iron_pickaxe"
+				}
+			}
+		}
+		{
+			id: "8A9B3C20EA576413"
+			title: "Claim the Root"
+			icon: "ftbchunks:chunk_off"
+			x: 2.0
+			y: 0.0
+			description: [
+				"Your root space is one persistent cell per player or team — spawn point, safety net, identity."
+				"Claim its chunks with FTB Chunks so your work stays yours."
+			]
+			tasks: {
+				task1: {
+					type: "checkmark"
+				}
+			}
+			dependencies: ["7B8A2E1FD9465302"]
+		}
+		{
+			id: "9C0A4D31FB687524"
+			title: "Room to Grow"
+			icon: "minecraft:brick_stairs"
+			x: 4.0
+			y: -1.0
+			description: [
+				"Space inside the root is the scarce resource — every new machine costs room you don't have."
+				"Expand the cell: dig out, wall up, make the first real workshop floor."
+			]
+			tasks: {
+				task1: {
+					type: "item"
+					item: "minecraft:bricks"
+					count: 16
+				}
+			}
+			dependencies: ["8A9B3C20EA576413"]
+		}
+		{
+			id: "0D1B5E42AC798635"
+			title: "Think Inside the Box"
+			icon: "minecraft:barrel"
+			x: 4.0
+			y: 1.0
+			description: [
+				"Storage sprawls. Learn the pack's answer early: one footprint, many uses."
+				"Barrels and crates from Functional Storage stack storage vertically instead of horizontally."
+			]
+			tasks: {
+				task1: {
+					type: "item"
+					item: "minecraft:barrel"
+					count: 4
+				}
+			}
+			dependencies: ["9C0A4D31FB687524"]
+		}
+		{
+			id: "1E2C6F53BD809746"
+			title: "The 3x3 Idea"
+			icon: "minecraft:cobblestone_generator"
+			x: 6.0
+			y: 0.0
+			description: [
+				"LV singleblock machines are the first taste of compaction: a full production line folded into a 3x3 block."
+				"Once the compact machine unlocks, 'where does it fit' stops being the question — 'what fits inside it' is."
+			]
+			tasks: {
+				task1: {
+					type: "checkmark"
+				}
+			}
+			dependencies: ["0D1B5E42AC798635"]
+		}
+		{
+			id: "2F3D7064CE910857"
+			title: "Compaction Engines"
+			icon: "minecraft:furnace_minecart"
+			x: 8.0
+			y: 0.0
+			description: [
+				"Run a full steam-to-LV ore line in your expanded root and keep every machine on a single chassis footprint."
+				"Compaction is how you win space: expand the root, fill it, then fold the fill."
+			]
+			tasks: {
+				task1: {
+					type: "item"
+					item: "minecraft:iron_ingot"
+					count: 32
+				}
+			}
+			dependencies: ["1E2C6F53BD809746"]
+		}
+	]
+}

@@ -1,0 +1,7 @@
+{
+    "name": "Folded Horizons",
+    "version": "0.1.0",
+    "overrides": [
+        "config"
+    ]
+}

@@ -1,0 +1,7 @@
+// FTB Quests language file (en_us).
+// All quest titles, subtitles, and descriptions are written inline in the
+// chapter files, so nothing needs overriding here. This file exists so the
+// lang/ directory is present and can be used later for translation keys.
+{
+
+}

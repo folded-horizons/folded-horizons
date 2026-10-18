@@ -1,0 +1,77 @@
+# Architecture — Module Split
+
+The mod is **split into independent jars**, each usable on its own —
+not soft-dependencies inside one blob, but a hard module boundary. A
+pack author installs exactly the modules they want; core runs with
+none of the others.
+
+## Module layout
+
+| Module (mod id) | Depends on | Ships |
+| --- | --- | --- |
+| `foldedhorizons` (core) | nothing | Pocket grid/registry/allocation, Breacher, Root Binder, Dimension-Gen, Temp Keys, wall blocks + chip mechanic, expansion, grace window, collapse watcher, game-event emission, built-in fallback owner list ("parties") for team identity, **StorageNetwork SPI + plain-inventory provider** (trading against adjacent chests/barrels) |
+| `foldedhorizons-ae2` | AE2 19.2.x, core | `AE2Bridge`, Trade Post ME backend (cross-dim remote grid access), ME-flavored Trade Post tooltips |
+| `foldedhorizons-gt` | GTCEu Modern 7.x, core | GT voltage-tier detection feeding expansion tokens, GT machine-framework registration helpers (controller/singleblock boilerplate), GT recipe hooks |
+| `foldedhorizons-ftb` | FTB Chunks + Teams, core | `FtbClaimAdapter` (claim/unclaim/re-register on conversion), team identity provider (FTB team UUIDs as registry keys) |
+
+Each module is a separate NeoForge jar with its own
+`neoforge.mods.toml` (deps on core marked required-if-present; AE2/GT/
+FTB optional). One gradle repo, subprojects, shared versioning. Core
+declares **no integration code paths at all** — the adapters above ARE
+the modules.
+
+## The seams (core-owned SPIs)
+
+Core defines small interfaces so modules plug in without core knowing
+them:
+
+- **`StorageNetwork` SPI** — `resolve(owner)` → extract/insert
+  primitives + energy accounting. Core ships the plain-inventory
+  provider (adjacent chest/barrel storage); the AE2 module registers
+  the ME provider. Trade Post UI lives in core and works against *any*
+  registered provider — trading works in an AE2-less pack
+  (chest-to-chest barter).
+- **`TierProvider` SPI** — "what tier token has this player reached?"
+  Core default: advancement/expansion-lever events. GT module
+  overrides with GT voltage tiers.
+- **`TeamIdentityProvider` SPI** — maps a player to a stable group id
+  + name. Core default: the built-in party list. FTB module overrides
+  with FTB teams (and enables real claims).
+
+## What a pack must supply vs. what modules guarantee
+
+- **Pack supplies** (datapack/config): recipes via KubeJS (the only
+  KubeJS use), optional datapack overrides of the mod's content (loot
+  tables, templates, dimension JSONs), `pocket.exploitDimensions`
+  list, quest content on the mod's events.
+- **Core guarantees**: grid + registry + allocation, all machine
+  behaviors, grace window, collapse-on-leave, address-not-door
+  specials, shell-growing expansion, event emission (`cell_allocated`,
+  `conversion_merged`, `unstable_pocket_collapsed`, `trade_executed`,
+  `shell_broken`).
+
+## Rules that keep the boundary honest
+
+1. Modules may import core's API; core imports no module. Feature code
+   must never check `ModList.isLoaded` — if it needs to, it belongs in
+   a module.
+2. No cross-mod item ids anywhere except inside the owning module.
+3. All templates/loot/dimension JSONs live on overridable datapack
+   paths; the mod ships only minimal defaults (empty starter cell +
+   lobby + one demo meteorite pocket).
+4. Core's branding, creative tab, and toasts are neutral (no
+   GregTech/AE2 references).
+
+**Consequence:** our pack installs `core + ae2 + gt + ftb`; a
+tech-lite pack installs `core + ae2`; a vanilla+ pack installs core
+alone and still gets pockets, walls, breacher, binder, expansion, and
+chest-to-chest trading.
+
+## Residual risks
+
+- AE2 19.2.x exact interface names may shift — contained to
+  `AE2Bridge`.
+- FTB Chunks claim API is internal/unstable — contained to
+  `FtbClaimAdapter`.
+- GT tier detection for expansion (v1 lever heuristic) may need a
+  GTCEu API call later — isolated in one helper.

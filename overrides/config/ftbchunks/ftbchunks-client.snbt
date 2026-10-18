@@ -1,0 +1,40 @@
+# FTB Chunks — multiplayer claim / protection config
+# Scope: `overrides/config/ftbchunks/` — shipped to every client & server.
+# Tuned for a pack where players start in a shared compact space and later
+# branch out into temporary exploit dimensions.
+
+{
+	# How many chunks a player can claim (base + per-player progression).
+	# Keep generous late-game: strip-mining whole temporary dimensions needs claims.
+	"max_claimed_chunks": 512,
+
+	# Team/chunk force-load limit for automation running while players are away.
+	"max_force_loaded_chunks": 64,
+
+	# Allow non-team players to interact with blocks in claimed chunks?
+	# false = classic FTB protection (recommended for multiplayer).
+	"block_interaction_mode": "ALLOW_ALL",   # ALLOW_ALL | ALLOW_TEAM | NONE
+
+	# Explosion protection inside claimed chunks.
+	"explosion_mode": "CREATE_ONLY",         # ALL | CREATE_ONLY | NONE
+
+	# Offline protection: claimed chunks of offline players stay protected.
+	"offline_protection": true,
+
+	# Auto-claim around spawn for the shared starting area (0 = disabled).
+	# Spawn area is shared in this pack, so prefer an unclaimed spawn + rules
+	# below rather than hard claims.
+	"spawn_hide_map": false,
+	"spawn_forced": false,
+
+	# Waypoint/map settings (client-side defaults).
+	"waypoint_enabled": true,
+
+	# Interaction whitelist: things non-team members may still do in claims.
+	# Keeps GT machines inspectable without letting strangers grief them.
+	"interaction_whitelist": [
+		"open_gui",          # look at machines/terminals (read-only usage)
+		"use_waypoint",      # create waypoints on claimed land
+		"autoskip_weekly"    # placeholder entry; adjust as needed
+	]
+}

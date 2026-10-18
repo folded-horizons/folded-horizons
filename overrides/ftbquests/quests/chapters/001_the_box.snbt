@@ -1,0 +1,159 @@
+{
+	title: "The Box"
+	icon: "minecraft:bedrock"
+	subtitle: "The walls feed you"
+	quests: [
+		{
+			id: "0A2A94D7C9C54301"
+			title: "Wake Up"
+			icon: "minecraft:barrier"
+			x: 0.0
+			y: 0.0
+			description: [
+				"You wake in a sealed cell. No ores, no sky, no crafting table."
+				"The only exit is forward — through the walls."
+			]
+			tasks: {
+				task1: {
+					type: "checkmark"
+				}
+			}
+		}
+		{
+			id: "3C4B098E1B0F52D2"
+			title: "Survey the Cell"
+			icon: "minecraft:flint"
+			x: 2.0
+			y: 0.0
+			description: [
+				"Hit the walls. They yield resources and stay standing — the room mines itself."
+				"Each wall tile holds a different material mix: find the stone, the wood, and the metals."
+			]
+			tasks: {
+				task1: {
+					type: "item"
+					item: "minecraft:cobblestone"
+					count: 8
+				}
+			}
+			dependencies: ["0A2A94D7C9C54301"]
+		}
+		{
+			id: "0A7BDF13A5C34E10"
+			title: "First Planks"
+			icon: "minecraft:oak_planks"
+			x: 4.0
+			y: -1.0
+			description: [
+				"The wood scraps from the walls craft into planks — inside the 2x2 grid, for now."
+				"Four planks later, the crafting table exists again."
+			]
+			tasks: {
+				task1: {
+					type: "item"
+					item: "minecraft:oak_planks"
+					count: 4
+				}
+			}
+			dependencies: ["3C4B098E1B0F52D2"]
+		}
+		{
+			id: "1D5C28AA7B4093F2"
+			title: "A Table of Your Own"
+			icon: "minecraft:crafting_table"
+			x: 6.0
+			y: -1.0
+			description: [
+				"Craft the crafting table — it is absent at start, and nothing 3x3 works until it's back."
+				"Normal crafting opens with it."
+			]
+			tasks: {
+				task1: {
+					type: "item"
+					item: "minecraft:crafting_table"
+				}
+			}
+			dependencies: ["0A7BDF13A5C34E10"]
+		}
+		{
+			id: "2E6B3F1C8A925D04"
+			title: "Metals From the Wall"
+			icon: "minecraft:raw_iron"
+			x: 4.0
+			y: 1.5
+			description: [
+				"With a pickaxe the walls give metal: iron chunks and copper chunks drop from wall mining."
+				"Enough to bootstrap a steam-age setup without ever leaving the cell."
+			]
+			tasks: {
+				task1: {
+					type: "item"
+					item: "minecraft:raw_iron"
+					count: 3
+				}
+				task2: {
+					type: "item"
+					item: "minecraft:raw_copper"
+					count: 3
+				}
+			}
+			dependencies: ["1D5C28AA7B4093F2"]
+		}
+		{
+			id: "4F7D5A2B9C136E18"
+			title: "A Tree in a Pot"
+			icon: "minecraft:oak_sapling"
+			x: 6.0
+			y: 1.5
+			description: [
+				"Plant a bonsai pot: saplings from the wall drops grow a full tree in a single block."
+				"Renewable wood with zero footprint — the compaction economy starts here."
+			]
+			tasks: {
+				task1: {
+					type: "item"
+					item: "minecraft:oak_log"
+					count: 8
+				}
+			}
+			dependencies: ["0A7BDF13A5C34E10"]
+		}
+		{
+			id: "5B8E6C3DAD247F20"
+			title: "Steam in a Box"
+			icon: "gregtech:lv_steam_boiler"
+			x: 8.0
+			y: 0.5
+			description: [
+				"Build your first GregTech steam boiler and a steam machine from the wall-harvested metals."
+				"Fire it with wood or coal and the cell starts producing on its own."
+			]
+			tasks: {
+				task1: {
+					type: "item"
+					item: "gregtech:lv_steam_boiler"
+				}
+			}
+			dependencies: ["2E6B3F1C8A925D04", "4F7D5A2B9C136E18"]
+		}
+		{
+			id: "6A9F7D4EBC358021"
+			title: "The Door Is a Machine"
+			icon: "minecraft:iron_door"
+			x: 10.0
+			y: 0.5
+			description: [
+				"The cell doesn't open. It is outgrown: whatever the walls sealed in is now an industry."
+				"Finish your steam setup — the next chapter walks you out."
+			]
+			tasks: {
+				task1: {
+					type: "item"
+					item: "minecraft:iron_ingot"
+					count: 8
+				}
+			}
+			dependencies: ["5B8E6C3DAD247F20"]
+		}
+	]
+}

@@ -1,0 +1,26 @@
+# Gradle / mod build
+companion/.gradle/
+companion/build/
+companion/run/
+companion/runs/
+companion/out/
+*.jar
+!companion/gradle/wrapper/gradle-wrapper.jar
+
+# IDE
+.idea/
+.vscode/
+*.iml
+*.ipr
+*.iws
+.classpath
+.project
+.settings/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Pakku output
+.modpack/
+*.zip

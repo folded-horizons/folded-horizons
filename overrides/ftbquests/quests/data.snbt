@@ -1,0 +1,6 @@
+// FTB Quests global data — standard loadable layout (FTBQ 2101.1.x).
+// `quest_id` is the NEXT FREE quest id; bump it when hand-adding quests.
+{
+	version: 1
+	quest_id: 1000
+}

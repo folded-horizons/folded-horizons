@@ -1,0 +1,129 @@
+{
+	title: "Electric Dreams"
+	icon: "gregtech:lv_energy_hatch"
+	subtitle: "LV → MV → EV"
+	quests: [
+		{
+			id: "3B4E8175DF021968"
+			title: "First Spark"
+			icon: "gregtech:lv_energy_hatch"
+			x: 0.0
+			y: 0.0
+			description: [
+				"Steam got you here; electricity takes you further. Build the LV tier of GregTech machines."
+				"Every voltage step-up multiplies what a single machine footprint can do."
+			]
+			tasks: {
+				task1: {
+					type: "checkmark"
+				}
+			}
+		}
+		{
+			id: "4C5F9286E0132079"
+			title: "Wire the Root"
+			icon: "minecraft:copper_block"
+			x: 2.0
+			y: 0.0
+			description: [
+				"Run cables through the root and power every LV machine from one generator room."
+				"A tidy grid now saves a rebuild later — the factory grows around its wires."
+			]
+			tasks: {
+				task1: {
+					type: "item"
+					item: "minecraft:copper_ingot"
+					count: 16
+				}
+			}
+			dependencies: ["3B4E8175DF021968"]
+		}
+		{
+			id: "5D608A37F124318A"
+			title: "Machines That Fold Space"
+			icon: "minecraft:shulker_box"
+			x: 4.0
+			y: -1.0
+			description: [
+				"Compact space arrives at LV: singleblock machines that fold a production chain into a 3x3 footprint."
+				"Place your first compact machine inside the root and reclaim the room it swallowed."
+			]
+			tasks: {
+				task1: {
+					type: "checkmark"
+				}
+			}
+			dependencies: ["4C5F9286E0132079"]
+		}
+		{
+			id: "6E719B48A235429B"
+			title: "The MV Step"
+			icon: "gregtech:machine"
+			x: 4.0
+			y: 1.0
+			description: [
+				"MV doubles the voltage and the machine tier with it. Upgrade hatches, wires, and casing stock accordingly."
+				"Each tier up is a new family of recipes — and new pressure on the space they occupy."
+			]
+			tasks: {
+				task1: {
+					type: "checkmark"
+				}
+			}
+			dependencies: ["5D608A37F124318A"]
+		}
+		{
+			id: "7F820C59B346530C"
+			title: "Ore From Nowhere"
+			icon: "minecraft:raw_iron_block"
+			x: 6.0
+			y: 1.0
+			description: [
+				"GTMOGS pockets: GregTech's ore generation ships ore veins that only exist where the world makes them."
+				"Read the vein list, then plan the root's ore imports around what the pockets hold."
+			]
+			tasks: {
+				task1: {
+					type: "item"
+					item: "minecraft:raw_iron"
+					count: 64
+				}
+			}
+			dependencies: ["6E719B48A235429B"]
+		}
+		{
+			id: "80931D6AC457641D"
+			title: "Placeable Emitters"
+			icon: "minecraft:redstone_lamp"
+			x: 6.0
+			y: -1.0
+			description: [
+				"Placeable Emitters put GT energy exactly where the factory needs it — no more single-room bottlenecks."
+				"Spread generation across the root instead of centralizing it."
+			]
+			tasks: {
+				task1: {
+					type: "checkmark"
+				}
+			}
+			dependencies: ["5D608A37F124318A"]
+		}
+		{
+			id: "91A42E7BD568752E"
+			title: "EV and the Edge of Tension"
+			icon: "minecraft:lightning_rod"
+			x: 8.0
+			y: 0.0
+			description: [
+				"EV is where GT stops being a crafting game and becomes an engineering one."
+				"Push a full EV line online — the next chapter's storage technology rides on this tier."
+			]
+			tasks: {
+				task1: {
+					type: "checkmark"
+				}
+			}
+			dependencies: ["7F820C59B346530C", "80931D6AC457641D"]
+		}
+	]
+}

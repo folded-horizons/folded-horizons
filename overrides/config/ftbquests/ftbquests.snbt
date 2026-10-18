@@ -1,0 +1,17 @@
+# FTB Quests — global behavior for the quest book.
+{
+	# Quest book is per-team progress (shared co-op progression).
+	"team_progress": true,
+
+	# Allow editing quests in-game only for operators (else use external editor).
+	"edit_only_in_creative": true,
+
+	# Lock the book until the intro quest is read? false = open from spawn.
+	"lock_before_intro": false,
+
+	# Chapter visibility: all chapters visible, gated by dependencies.
+	"chapter_visibility": "ALWAYS",
+
+	# Drop rewards on player death? keep generous.
+	"drop_loot_crates_on_death": false
+}

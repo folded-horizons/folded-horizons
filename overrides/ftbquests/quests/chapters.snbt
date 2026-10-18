@@ -1,0 +1,44 @@
+{
+	// LEGACY FILE — NOT LOADABLE.
+	//
+	// FTB Quests 2101.1.x does NOT read a monolithic chapters.snbt. The
+	// standard loadable layout is:
+	//   data.snbt            — version + next free quest id
+	//   chapter_groups.snbt  — chapter group definitions
+	//   chapters/*.snbt      — one chapter per file
+	//   lang/en_us.snbt      — optional language overrides
+	//
+	// The real quest content lives in the chapters/ directory next to this
+	// file. This file is kept only as a historical reference for the
+	// original chapter-arc skeleton and can be deleted safely.
+	id: "compact_exploitation"
+	title: "Folded Horizons"
+	icon: "gtceu:steel_machine_casing"
+	description: [
+		"You wake up inside a sealed cell. No ores. No sky. No crafting table."
+		"The walls themselves feed you — mine them without breaking them."
+		"Work your way out through GregTech and AE2, then open temporary"
+		"dimensions and strip them bare."
+	]
+	// Quest tree skeleton — fill in during pack development:
+	//
+	// Chapter 1: "The Box" (root space interior)
+	//   - mine the wall blocks for starter resources (they never break)
+	//   - 2x2 crafting only → first crafting table → 3x3 opens
+	//   - first tools, steam age inside the machine
+	// Chapter 2: "Breaking Out" (exit + first overworld contact)
+	//   - compact machine wall breach, establishing a base
+	//   - LV: simple ME network (vibration chamber + drive + terminal,
+	//     no controller, 8-channel budget)
+	// Chapter 3: "Electric Dreams" (GT MV/HV)
+	//   - HV: ME Controller lifts the 8-channel cap; ME Interface ties
+	//     the network into GT machines (patterns, autocrafting)
+	// Chapter 4: "Digital Storage" (AE2 network, autocrafting)
+	// Chapter 5: "Dimensional Exploitation" (temporary dimensions)
+	//   - how to open/stabilize pocket dimensions
+	//   - resource targets per dimension tier
+	//   - the "abandon & move on" mechanic
+	//
+	// Quests are stored as .snbt files next to this one; edit with the
+	// in-game editor (creative + op) or by hand.
+}

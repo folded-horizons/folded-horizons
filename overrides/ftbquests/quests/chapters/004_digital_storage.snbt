@@ -1,0 +1,166 @@
+{
+	title: "Digital Storage"
+	icon: "ae2:drive"
+	subtitle: "ME before ME gets fancy"
+	quests: [
+		{
+			id: "A2C534FE16B98730"
+			title: "One Room, One Network"
+			icon: "ae2:vibration_chamber"
+			x: 0.0
+			y: 0.0
+			description: [
+				"AE2 arrives early and stays simple until HV: no controller, no fuss."
+				"A vibration chamber burns fuel and powers the smallest useful network in the pack."
+			]
+			tasks: {
+				task1: {
+					type: "item"
+					item: "ae2:vibration_chamber"
+				}
+			}
+		}
+		{
+			id: "B3D6450F27CA9801"
+			title: "Handmade Discs"
+			icon: "ae2:logic_drive"
+			x: 2.0
+			y: 0.0
+			description: [
+				"Discs are the first real storage production chain: smelt, press, and slot them into a drive."
+				"Each disc holds a finite type count — compaction pressure, in miniature."
+			]
+			tasks: {
+				task1: {
+					type: "item"
+					item: "ae2:drive"
+				}
+			}
+			dependencies: ["A2C534FE16B98730"]
+		}
+		{
+			id: "C4E756103ADB0912"
+			title: "The Terminal"
+			icon: "ae2:terminal"
+			x: 4.0
+			y: -1.0
+			description: [
+				"An ME terminal turns a pile of discs into a searchable, craftable inventory."
+				"Place it on the network and everything stored becomes one screen away."
+			]
+			tasks: {
+				task1: {
+					type: "item"
+					item: "ae2:terminal"
+				}
+			}
+			dependencies: ["B3D6450F27CA9801"]
+		}
+		{
+			id: "D5F867214BEC1032"
+			title: "Eight Channels of Freedom"
+			icon: "minecraft:red_wire"
+			x: 4.0
+			y: 1.0
+			description: [
+				"Controller-less ME networks cap at 8 channels — enough for a drive, a terminal, and a few buses."
+				"Treat the cap as a space budget: every device competes for a channel until something lifts it."
+			]
+			tasks: {
+				task1: {
+					type: "checkmark"
+				}
+			}
+			dependencies: ["C4E756103ADB0912"]
+		}
+		{
+			id: "E60978325CFD2140"
+			title: "Late LV: The Meteor Jump"
+			icon: "ae2:sky_stone_block"
+			x: 6.0
+			y: 0.5
+			description: [
+				"Build a GT dimension-generation multiblock and jump to an AE2 meteorite dimension: skystone, four Presses, budding certus quartz."
+				"The multiblock is CONSUMED in the jump — one machine per pocket, each pocket costs a full rebuild."
+			]
+			tasks: {
+				task1: {
+					type: "checkmark"
+				}
+			}
+			dependencies: ["D5F867214BEC1032"]
+		}
+		{
+			id: "F7108A936D0E3201"
+			title: "The Four Presses"
+			icon: "ae2:inscription_press"
+			x: 8.0
+			y: 0.0
+			description: [
+				"Loot the pocket before it's exhausted: the presses unlock the whole AE2 endgame chain of printed circuits and processors."
+				"Finite loot, finite pocket — a preview of the exploit cycle before exploit dimensions open."
+			]
+			tasks: {
+				task1: {
+					type: "item"
+					item: "ae2:sky_stone_block"
+					count: 16
+				}
+			}
+			dependencies: ["E60978325CFD2140"]
+		}
+		{
+			id: "08219BA0471F4312"
+			title: "Growing Certus"
+			icon: "ae2:quartz_cluster_block"
+			x: 8.0
+			y: 1.5
+			description: [
+				"Budding certus quartz grows clusters you can harvest forever — the renewable backbone of every processor."
+				"Farm it, and storage stops being a scavenger hunt."
+			]
+			tasks: {
+				task1: {
+					type: "checkmark"
+				}
+			}
+			dependencies: ["F7108A936D0E3201"]
+		}
+		{
+			id: "19320CB1582A5423"
+			title: "HV: The Controller"
+			icon: "ae2:controller"
+			x: 10.0
+			y: 0.0
+			description: [
+				"An ME controller lifts the 8-channel cap and the network stops being a box and becomes a system."
+				"Rebuild the network around a controller — the channel budget is finally gone."
+			]
+			tasks: {
+				task1: {
+					type: "item"
+					item: "ae2:controller"
+				}
+			}
+			dependencies: ["08219BA0471F4312"]
+		}
+		{
+			id: "2A431DB2693B6530"
+			title: "HV: The Interface"
+			icon: "ae2:interface"
+			x: 12.0
+			y: 0.0
+			description: [
+				"An ME interface ties ME storage into GT machines: patterns in, autocrafting out."
+				"Storage becomes the nervous system of the root space."
+			]
+			tasks: {
+				task1: {
+					type: "item"
+					item: "ae2:interface"
+				}
+			}
+			dependencies: ["19320CB1582A5423"]
+		}
+	]
+}

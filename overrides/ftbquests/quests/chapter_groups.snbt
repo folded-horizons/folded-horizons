@@ -1,0 +1,10 @@
+// Chapter groups — standard loadable layout (FTBQ 2101.1.x).
+// One group holds all five chapters of the pack's arc.
+// The all-zero id is FTB Quests' built-in default group id.
+[
+	{
+		id: "00000000000000000000000000000000"
+		title: "Folded Horizons"
+		icon: "minecraft:obsidian"
+	}
+]
