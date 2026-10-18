@@ -29,28 +29,13 @@ Built and packaged with [Pakku](https://github.com/juraj-hrivnak/Pakku).
 
 Full gameplay design: [`docs/design/`](docs/design/)
 
-## Mod list
+## Mods
 
-| Mod | Version | Role |
-|-----|---------|------|
-| **GregTech CEu Modern** | 1.21.1-7.0.2 | Tech progression backbone |
-| **Applied Energistics 2** | 19.2.18 | Storage & digital logistics; trading-hall network layer |
-| Applied Flux | 1.21-2.1.6 | FE⇄ME energy integration |
-| GT Modern Ore Generation Standalone | 1.21.1-1.0.6 | GT ore veins in pockets |
-| GregTech Placeable Emitters | 1.21-1.0.9 | Portable GT emitters |
-| **Bonsai Trees 4** | 4.0.9 | Renewable wood, zero footprint |
-| **Farmer's Delight** | 1.21.1-1.3.4 | Food loop |
-| Expanded Delight | 0.1.4 | Extra FD content |
-| Sophisticated Storage / Backpacks | — | Upgraded storage |
-| Functional Storage | — | Drawer banks |
-| **FTB Chunks / Teams / Quests / Essentials** | 2101.1.x | Claims, parties, quests, /back /tpa /warp |
-| EMI | 1.1.24+1.21.1 | Recipe viewer |
-| Sodium | 0.8.13+mc1.21.1 | Client rendering |
-| AppleSkin | 3.0.9 | Hunger HUD |
-
-Pulled in as dependencies: Configuration, LDLib, GuideME, Architectury
-API, FTB Library, Glodium, Titanium, Sophisticated Core.
-Client/server optimization: FerriteCore, ModernFix.
+The authoritative mod list is `pakku-lock.json` (26 projects,
+CurseForge-resolved) — kept out of this README on purpose so it never
+drifts. In short: GregTech CEu Modern backbone, Applied Energistics 2,
+FTB suite, Bonsai Trees, Farmer's Delight, storage mods, EMI/Sodium,
+plus the companion mod (built from `folded-horizons-core`).
 
 ## Repository layout
 
