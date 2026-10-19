@@ -20,10 +20,12 @@ names below match those stubs.
 | [`integration.md`](integration.md) | AE2, GTCEu, mod-vs-data boundary, tick logic, save format |
 | [`build-order.md`](build-order.md) | Implementation checklist (tracked as issues) |
 
-**Design principle:** all logic lives in the mod; **KubeJS is for
-recipes only** ([§ Mod vs. data](integration.md#mod-vs-data)). The mod
-owns state machines, tuning defaults, and its own datapack content so
-it works standalone.
+**Design principle:** all logic lives in the mod, and each mod **ships
+its own default recipes** so it is reachable in survival on its own;
+**KubeJS is for recipe overrides only**
+([§ Mod vs. data](integration.md#mod-vs-data)). The mod owns state
+machines, tuning defaults, recipes, and its own datapack content so it
+works standalone.
 
 **Self-containedness goal:** the mod builds and runs with NONE of
 AE2 / GTCEu / FTB present — features degrade gracefully, any modpack

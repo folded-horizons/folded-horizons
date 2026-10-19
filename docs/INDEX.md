@@ -11,7 +11,9 @@ Reading order for newcomers: README → `design/` → `companion-mod/`.
 
 **Conventions:**
 
-- All logic lives in the companion mod; **KubeJS is for recipes only**.
+- All logic lives in the companion mod. Each mod **ships its own
+  default recipes**; KubeJS is for recipe *overrides* only
+  (decision #14).
 - Technical namespace is `foldedhorizons` (mod ids, packages,
   dimension ids) — the pack is named *Folded Horizons*.
 - Docs describe intent, not implementation status — the build order

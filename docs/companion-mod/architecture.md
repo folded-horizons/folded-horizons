@@ -42,10 +42,16 @@ them:
 
 ## What a pack must supply vs. what modules guarantee
 
-- **Pack supplies** (datapack/config): recipes via KubeJS (the only
-  KubeJS use), optional datapack overrides of the mod's content (loot
-  tables, templates, dimension JSONs), `pocket.exploitDimensions`
-  list, quest content on the mod's events.
+- **Mods supply** (datapack, shipped in the jar): recipes for every
+  item and machine they register, plus loot tables, templates and
+  dimension JSONs. A mod must be reachable in survival on its own —
+  that is what makes it testable and standalone-installable
+  (decision #14).
+- **Pack supplies** (datapack/config): recipe **overrides** via KubeJS
+  (the only KubeJS use) — replace or rebalance what the mod ships,
+  rewire it into pack-specific materials, gate it behind GT tiers.
+  Also: optional datapack overrides of the mod's other content,
+  `pocket.exploitDimensions` list, quest content on the mod's events.
 - **Core guarantees**: grid + registry + allocation, all machine
   behaviors, grace window, collapse-on-leave, address-not-door
   specials, shell-growing expansion, event emission (`cell_allocated`,

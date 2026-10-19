@@ -75,12 +75,20 @@ Concretely:
 - Default data (starter cell, lobby, demo meteorite pocket) lives in
   the mod jar so the mod works standalone.
 
-**In KubeJS (recipes only):** GT-tiered recipes for Temp Keys,
-machines, expansion lever, starter-cell crafting table (4 planks), and
-pack recipe rebalancing. Nothing else.
+**Recipe defaults ship in the mod** (decision #14): every item and
+machine the mod registers has a working recipe in
+`data/foldedhorizons/recipe/`, so the mod is reachable in survival with
+no pack and no KubeJS present. Without this the mod cannot be tested
+in-game or installed standalone — it can only be `/setblock`-ed.
+
+**In KubeJS (recipe overrides only):** rebalancing, rewiring the
+mod's recipes into pack-specific materials (GT tier gating, GT-only
+ingredients), and the starter-cell crafting table (4 planks), which is
+pack progression rather than mod content. Nothing else.
 
 **Rule of thumb:** behavior/state/tuning/content → the mod
-(datapack-overridable). Crafting recipe → KubeJS. A future need that
+(datapack-overridable). Default recipe → the mod's datapack. Recipe
+difference specific to this pack → KubeJS override. A future need that
 seems to require KubeJS logic → extend the mod's config instead.
 
 ## Tick logic
