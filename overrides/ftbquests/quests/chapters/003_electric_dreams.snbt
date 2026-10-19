@@ -79,8 +79,8 @@
 			x: 6.0
 			y: 1.0
 			description: [
-				"GTMOGS pockets: GregTech's ore generation ships ore veins that only exist where the world makes them."
-				"Read the vein list, then plan the root's ore imports around what the pockets hold."
+				"GregTech ore veins only exist where a world makes them — and your first world is a box."
+				"Plan the root's ore imports around what each pocket holds, not around a convenient home vein."
 			]
 			tasks: {
 				task1: {
@@ -93,13 +93,13 @@
 		}
 		{
 			id: "80931D6AC457641D"
-			title: "Placeable Emitters"
+			title: "Wire It Narrow"
 			icon: "minecraft:redstone_lamp"
 			x: 6.0
 			y: -1.0
 			description: [
-				"Placeable Emitters put GT energy exactly where the factory needs it — no more single-room bottlenecks."
-				"Spread generation across the root instead of centralizing it."
+				"Your root space is small on purpose. A central generator room is a luxury you cannot afford."
+				"Run cables through the walls, put generators in the gaps, and let the box stay a box."
 			]
 			tasks: {
 				task1: {

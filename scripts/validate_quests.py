@@ -23,9 +23,13 @@ import sys
 QUESTS_DIR = pathlib.Path("overrides/ftbquests/quests")
 LOCKFILE = pathlib.Path("pakku-lock.json")
 
-# CurseForge project slug -> in-game mod namespace. The lockfile records
-# slugs and file names, never the namespace, so this map is maintained by
-# hand. Add an entry whenever the pack gains a mod that quests reference.
+# Project slug -> in-game mod namespace. The lockfile records slugs and
+# file names, never the namespace, so this map is maintained by hand. Add
+# an entry whenever the pack gains a mod that quests reference.
+#
+# Keys may be a CurseForge slug, a Modrinth slug, or (for GitHub-hosted
+# projects such as GTCEu) the "owner/repo" string written there as
+# "owner\nrepo" in the lockfile's slug map — see slug_keys().
 SLUG_NAMESPACES: dict[str, str] = {
     "applied-energistics-2": "ae2",
     "applied-flux": "appflux",
@@ -40,9 +44,10 @@ SLUG_NAMESPACES: dict[str, str] = {
     "ftb-quests-forge": "ftbquests",
     "ftb-teams-forge": "ftbteams",
     "functional-storage": "functionalstorage",
-    "gregtech-modern-ore-generation-standalone": "gtmogs",
-    "gregtech-placeable-emitters": "greg_emitters",
-    "gregtechceu-modern": "gtceu",
+    # GTCEu is tracked from its GitHub release because the CurseForge build
+    # cannot start a dedicated server (upstream #4155). The lockfile records
+    # the project as slug.github = "GregTechCEu/GregTech-Modern".
+    "GregTechCEu/GregTech-Modern": "gtceu",
 }
 
 # Namespaces that ship with the pack but not from a CurseForge project.
@@ -147,6 +152,22 @@ def load(path: pathlib.Path):
 # Pack namespaces (so we can catch wrong mod ids)
 # --------------------------------------------------------------------------
 
+def slug_keys(project: dict) -> list[str]:
+    """Every slug a lockfile project is known by, across all platforms."""
+    slugs = project.get("slug") or {}
+    keys = []
+    for value in slugs.values():
+        if not value:
+            continue
+        if isinstance(value, dict):  # github: {owner, repo}
+            owner, repo = value.get("owner"), value.get("repo")
+            if owner and repo:
+                keys.append(f"{owner}/{repo}")
+        else:
+            keys.append(str(value))
+    return keys
+
+
 def pack_namespaces() -> set[str]:
     """Namespaces the pack can actually resolve.
 
@@ -164,9 +185,9 @@ def pack_namespaces() -> set[str]:
     for project in data.get("projects", []):
         if not isinstance(project, dict):
             continue
-        slug = (project.get("slug") or {}).get("curseforge")
-        if slug and slug in SLUG_NAMESPACES:
-            ns.add(SLUG_NAMESPACES[slug])
+        for slug in slug_keys(project):
+            if slug in SLUG_NAMESPACES:
+                ns.add(SLUG_NAMESPACES[slug])
     return ns
 
 

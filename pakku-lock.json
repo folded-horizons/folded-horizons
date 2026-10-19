@@ -4,7 +4,7 @@
         "1.21.1"
     ],
     "loaders": {
-        "neoforge": "21.1.65"
+        "neoforge": "21.1.264"
     },
     "projects": [
         {
@@ -686,132 +686,30 @@
             ]
         },
         {
-            "pakku_id": "esN7vMsb1MYeieM9",
-            "pakku_links": [
-                "nCkU0rFfWJApTJAW",
-                "YKkTyVlBbxQeH53b"
-            ],
+            "pakku_id": "pTvP5ZjOY8DB8Xxs",
             "type": "MOD",
-            "side": "BOTH",
             "slug": {
-                "curseforge": "gregtechceu-modern"
+                "github": "GregTechCEu/GregTech-Modern"
             },
             "name": {
-                "curseforge": "GregTech CEu Modern"
+                "github": "GregTech-Modern"
             },
             "id": {
-                "curseforge": "890405"
+                "github": "615400306"
             },
             "files": [
                 {
-                    "type": "curseforge",
-                    "file_name": "gtceu-1.21.1-7.0.2.jar",
-                    "mc_versions": [
-                        "1.21",
-                        "1.21.1"
-                    ],
-                    "loaders": [
-                        "neoforge"
-                    ],
-                    "release_type": "alpha",
-                    "url": "https://edge.forgecdn.net/files/6792/853/gtceu-1.21.1-7.0.2.jar",
-                    "id": "6792853",
-                    "parent_id": "890405",
-                    "hashes": {
-                        "sha1": "a608438b6f50515daa986c7852e7284a038ed619",
-                        "md5": "e627cfefa1b290526a1d8ac1716db9da"
-                    },
-                    "required_dependencies": [
-                        "444699",
-                        "626676"
-                    ],
-                    "size": 16555448,
-                    "date_published": "2025-07-20T21:30:06.223Z"
-                }
-            ]
-        },
-        {
-            "pakku_id": "ntrtYTDSjCAuidEt",
-            "pakku_links": [
-                "nCkU0rFfWJApTJAW",
-                "YKkTyVlBbxQeH53b"
-            ],
-            "type": "MOD",
-            "slug": {
-                "curseforge": "gregtech-modern-ore-generation-standalone"
-            },
-            "name": {
-                "curseforge": "GregTech Modern Ore Generation: Standalone"
-            },
-            "id": {
-                "curseforge": "1340111"
-            },
-            "files": [
-                {
-                    "type": "curseforge",
-                    "file_name": "gtmogs-1.21.1-1.0.6.jar",
-                    "mc_versions": [
-                        "1.21.1"
-                    ],
-                    "loaders": [
-                        "neoforge"
-                    ],
+                    "type": "github",
+                    "file_name": "gtceu-1.21.1-8.0.0-SNAPSHOT+20261017-095459-36a6b38.jar",
                     "release_type": "release",
-                    "url": "https://edge.forgecdn.net/files/7059/530/gtmogs-1.21.1-1.0.6.jar",
-                    "id": "7059530",
-                    "parent_id": "1340111",
+                    "url": "https://github.com/GregTechCEu/GregTech-Modern/releases/download/latest-1.21/gtceu-1.21.1-8.0.0-SNAPSHOT+20261017-095459-36a6b38.jar",
+                    "id": "650121780",
+                    "parent_id": "615400306",
                     "hashes": {
-                        "sha1": "8b8dbd6fff2048de6771a756ce58b7039101e8b0",
-                        "md5": "c0fc9469ef3754a0abdbad2803376034"
+                        "sha256": "057f8e9750b750bf020340a3d8ecdde0fe183c7a3a1ac1afae29777e031a1011"
                     },
-                    "required_dependencies": [
-                        "444699",
-                        "626676"
-                    ],
-                    "size": 3706799,
-                    "date_published": "2025-10-02T21:58:21.890Z"
-                }
-            ]
-        },
-        {
-            "pakku_id": "WYH5xgRTV6P5aUTI",
-            "pakku_links": [
-                "esN7vMsb1MYeieM9"
-            ],
-            "type": "MOD",
-            "slug": {
-                "curseforge": "gregtech-placeable-emitters"
-            },
-            "name": {
-                "curseforge": "GregTech Placeable Emitters"
-            },
-            "id": {
-                "curseforge": "1056934"
-            },
-            "files": [
-                {
-                    "type": "curseforge",
-                    "file_name": "greg_emitters-1.21-1.0.9.jar",
-                    "mc_versions": [
-                        "1.21",
-                        "1.21.1"
-                    ],
-                    "loaders": [
-                        "neoforge"
-                    ],
-                    "release_type": "release",
-                    "url": "https://edge.forgecdn.net/files/6012/492/greg_emitters-1.21-1.0.9.jar",
-                    "id": "6012492",
-                    "parent_id": "1056934",
-                    "hashes": {
-                        "sha1": "cc13a81eb1b7fd351c5d5e1b8b9a37785aa68229",
-                        "md5": "52cf330ad71aa44a1e13b07d076b3506"
-                    },
-                    "required_dependencies": [
-                        "890405"
-                    ],
-                    "size": 748342,
-                    "date_published": "2024-12-22T05:24:25.513Z"
+                    "size": 16919208,
+                    "date_published": "2026-10-17T09:55:06Z"
                 }
             ]
         },
@@ -849,44 +747,6 @@
                     "required_dependencies": [],
                     "size": 9311992,
                     "date_published": "2026-09-16T17:18:53.717Z"
-                }
-            ]
-        },
-        {
-            "pakku_id": "YKkTyVlBbxQeH53b",
-            "type": "MOD",
-            "side": "BOTH",
-            "slug": {
-                "curseforge": "ldlib"
-            },
-            "name": {
-                "curseforge": "LDLib"
-            },
-            "id": {
-                "curseforge": "626676"
-            },
-            "files": [
-                {
-                    "type": "curseforge",
-                    "file_name": "ldlib2-neoforge-1.21.1-2.2.42-all.jar",
-                    "mc_versions": [
-                        "1.21",
-                        "1.21.1"
-                    ],
-                    "loaders": [
-                        "neoforge"
-                    ],
-                    "release_type": "release",
-                    "url": "https://edge.forgecdn.net/files/9059/591/ldlib2-neoforge-1.21.1-2.2.42-all.jar",
-                    "id": "9059591",
-                    "parent_id": "626676",
-                    "hashes": {
-                        "sha1": "42fd60ad891e07b7534f43d9ef2b1beef6a81042",
-                        "md5": "a4bb4c55a936566597db2be06a667fea"
-                    },
-                    "required_dependencies": [],
-                    "size": 7617480,
-                    "date_published": "2026-10-04T14:59:02.453Z"
                 }
             ]
         },
@@ -965,6 +825,7 @@
         {
             "pakku_id": "ukEO19zk6LaO89IF",
             "type": "MOD",
+            "side": "CLIENT",
             "slug": {
                 "curseforge": "sodium"
             },

@@ -31,3 +31,6 @@ node_modules/
 package.json
 package-lock.json
 bili-proxy/
+
+# Local test server
+.test-server/
