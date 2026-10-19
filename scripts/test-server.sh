@@ -112,6 +112,9 @@ unset client_only
 # Accept the EULA (you accept it by running this script).
 echo "eula=true" > "$SERVER_DIR/eula.txt"
 
+# RCON is on so a test can drive the server without a client (that is how
+# the gameplay checks are run). Local throwaway world, fixed password, the
+# port is only published to 127.0.0.1 by the devcontainer.
 cat > "$SERVER_DIR/server.properties" <<'PROPS'
 level-name=world
 online-mode=false
@@ -120,6 +123,9 @@ max-tick-time=-1
 view-distance=8
 spawn-protection=0
 sync-chunk-writes=false
+enable-rcon=true
+rcon.port=25575
+rcon.password=testserver
 PROPS
 
 # Enough heap for GregTech + AE2.
