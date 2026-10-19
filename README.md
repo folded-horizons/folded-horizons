@@ -1,5 +1,8 @@
 # Folded Horizons
 
+[![Validate](https://github.com/folded-horizons/folded-horizons/actions/workflows/validate.yml/badge.svg)](https://github.com/folded-horizons/folded-horizons/actions/workflows/validate.yml)
+[![Boot](https://github.com/folded-horizons/folded-horizons/actions/workflows/boot.yml/badge.svg)](https://github.com/folded-horizons/folded-horizons/actions/workflows/boot.yml)
+
 A **GregTech modpack about space scarcity** — you start sealed in a
 box, and every horizon you ever see afterwards is one you built or
 breached your way into.
@@ -76,12 +79,17 @@ A **CurseForge API key** is required for CF operations (read from the
 environment).
 
 ```sh
-pakku ls                 # list pinned projects
-pakku status             # verify lockfile freshness
-pakku add prj --cf <slug>   # add a mod (resolves deps)
-pakku fetch              # download locked files
-pakku export --cf        # export CurseForge pack
+pakku ls                        # list pinned projects
+pakku status                    # verify lockfile freshness
+pakku add prj --cf <slug>       # add a CurseForge mod (resolves deps)
+pakku add prj --gh <owner/repo>  # add a GitHub-released mod
+pakku cfg prj --side=CLIENT <p>  # mark a client-only project
+pakku fetch                     # download locked files
+pakku export --cf               # export CurseForge pack
 ```
+
+Client-only projects are excluded from the server test automatically, and
+`pakku export --cf` writes them to the client side of the manifest.
 
 Key conventions (see `docs/`):
 

@@ -34,3 +34,6 @@ bili-proxy/
 
 # Local test server
 .test-server/
+
+# Pakku generated docs (.pakku/docs from --generate-docs)
+.pakku/

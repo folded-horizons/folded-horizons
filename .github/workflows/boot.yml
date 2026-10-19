@@ -1,0 +1,101 @@
+name: Boot
+
+# Catches the class of bug that unit tests and file validation cannot:
+# a pack that resolves cleanly but dies when a dedicated server starts.
+#
+# All three defects found on 2026-10-19 were invisible to every other check
+# and would have shipped in an alpha export:
+#   - NeoForge pinned older than several mods require
+#   - GTCEu 7.0.2 loading a client class during common init
+#   - Sodium crashing dedicated servers from its client bootstrap
+#
+# Requires a CURSEFORGE_API_KEY repository secret (pakku resolves file URLs
+# through the CurseForge API). Without it the job skips instead of failing,
+# so forks and pull requests from outside the org stay green.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  boot:
+    name: Boot a dedicated server
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Check for the CurseForge API key
+        id: key
+        env:
+          CF_KEY: ${{ secrets.CURSEFORGE_API_KEY }}
+        run: |
+          if [ -n "${CF_KEY:-}" ]; then
+            echo "present=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "present=false" >> "$GITHUB_OUTPUT"
+            echo "::notice::CURSEFORGE_API_KEY unset - skipping boot test."
+          fi
+
+      - uses: actions/setup-java@v4
+        if: steps.key.outputs.present == 'true'
+        with:
+          distribution: temurin
+          java-version: '21'
+
+      - uses: actions/setup-python@v5
+        if: steps.key.outputs.present == 'true'
+        with:
+          python-version: '3.12'
+
+      - name: Install Pakku
+        if: steps.key.outputs.present == 'true'
+        run: |
+          curl -fsSL -o /usr/local/bin/pakku.jar \
+            https://github.com/juraj-hrivnak/Pakku/releases/download/v1.5.0/pakku.jar
+          printf '#!/bin/sh\nexec java -jar /usr/local/bin/pakku.jar "$@"\n' \
+            > /usr/local/bin/pakku
+          chmod +x /usr/local/bin/pakku
+          pakku --version
+
+      - name: Fetch locked mods
+        if: steps.key.outputs.present == 'true'
+        env:
+          CURSEFORGE_API_KEY: ${{ secrets.CURSEFORGE_API_KEY }}
+        run: pakku fetch
+
+      - name: Build a stub companion jar
+        # The pack's own mod is not the subject of this job. A minimal jar
+        # with a valid mod manifest is enough to prove the *rest* of the
+        # pack loads together.
+        if: steps.key.outputs.present == 'true'
+        run: |
+          mkdir -p companion/core/build/libs
+          stub="$RUNNER_TEMP/stub"
+          mkdir -p "$stub/META-INF"
+          {
+            echo 'modLoader = "javafml"'
+            echo 'loaderVersion = "[4,)"'
+            echo 'license = "MIT"'
+            echo '[[mods]]'
+            echo 'modId = "foldedhorizons"'
+            echo 'version = "0.1.0"'
+            echo 'displayName = "Folded Horizons Core (CI stub)"'
+          } > "$stub/META-INF/neoforge.mods.toml"
+          out="$GITHUB_WORKSPACE/companion/core/build/libs"
+          (cd "$stub" && jar cf "$out/foldedhorizons-0.1.0.jar" META-INF)
+
+      - name: Boot and assert the server comes up
+        if: steps.key.outputs.present == 'true'
+        run: bash scripts/test-server.sh
+
+      - name: Upload the server log
+        if: always() && steps.key.outputs.present == 'true'
+        uses: actions/upload-artifact@v4
+        with:
+          name: server-log
+          path: .test-server/console.log
+          retention-days: 7
+          if-no-files-found: ignore
