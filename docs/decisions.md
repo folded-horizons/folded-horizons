@@ -15,3 +15,4 @@ resurfacing, record the outcome here instead of re-litigating it.
 | 9 | **All logic in the mod; KubeJS for recipes only** | Mod owns state machines, tuning, datapack content → standalone-capable; KubeJS glue scripts would break that |
 | 10 | **Machines use the GTCEu framework** | Breacher/Binder/TradePost/Dim-Gen are real GT multiblocks/singleblocks — free formation preview, casing UI, tier/energy plumbing for GT players |
 | 11 | **Static void dimension with grid cells; no runtime dimension creation** | "Temporary" is a gameplay state (exhaustion + collapse), never a technical one — crash-safe, snapshot-friendly |
+| 12 | **Claiming inside pockets is disabled; permanent pockets auto-claimed, no limit, permanently chunk-loaded** | Your space is fully owned by construction — manual claim bookkeeping contradicts the pack premise; automation must run while players are away |
