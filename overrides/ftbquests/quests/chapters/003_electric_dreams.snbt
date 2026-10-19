@@ -1,12 +1,12 @@
 {
 	title: "Electric Dreams"
-	icon: "gregtech:lv_energy_hatch"
+	icon: "gtceu:lv_energy_input_hatch"
 	subtitle: "LV → MV → EV"
 	quests: [
 		{
 			id: "3B4E8175DF021968"
 			title: "First Spark"
-			icon: "gregtech:lv_energy_hatch"
+			icon: "gtceu:lv_energy_input_hatch"
 			x: 0.0
 			y: 0.0
 			description: [
@@ -58,7 +58,7 @@
 		{
 			id: "6E719B48A235429B"
 			title: "The MV Step"
-			icon: "gregtech:machine"
+			icon: "gtceu:mv_machine_hull"
 			x: 4.0
 			y: 1.0
 			description: [

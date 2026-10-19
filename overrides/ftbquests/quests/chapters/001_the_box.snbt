@@ -121,7 +121,7 @@
 		{
 			id: "5B8E6C3DAD247F20"
 			title: "Steam in a Box"
-			icon: "gregtech:lv_steam_boiler"
+			icon: "gtceu:lp_steam_solid_boiler"
 			x: 8.0
 			y: 0.5
 			description: [
@@ -131,7 +131,7 @@
 			tasks: {
 				task1: {
 					type: "item"
-					item: "gregtech:lv_steam_boiler"
+					item: "gtceu:lp_steam_solid_boiler"
 				}
 			}
 			dependencies: ["2E6B3F1C8A925D04", "4F7D5A2B9C136E18"]

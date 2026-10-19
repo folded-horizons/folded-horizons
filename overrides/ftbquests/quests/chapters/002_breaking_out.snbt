@@ -23,7 +23,7 @@
 		{
 			id: "8A9B3C20EA576413"
 			title: "Claim the Root"
-			icon: "ftbchunks:chunk_off"
+			icon: "minecraft:map"
 			x: 2.0
 			y: 0.0
 			description: [
@@ -78,7 +78,7 @@
 		{
 			id: "1E2C6F53BD809746"
 			title: "The 3x3 Idea"
-			icon: "minecraft:cobblestone_generator"
+			icon: "gtceu:lv_machine_hull"
 			x: 6.0
 			y: 0.0
 			description: [

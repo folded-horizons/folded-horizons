@@ -23,7 +23,7 @@
 		{
 			id: "B3D6450F27CA9801"
 			title: "Handmade Discs"
-			icon: "ae2:logic_drive"
+			icon: "ae2:drive"
 			x: 2.0
 			y: 0.0
 			description: [
@@ -59,7 +59,7 @@
 		{
 			id: "D5F867214BEC1032"
 			title: "Eight Channels of Freedom"
-			icon: "minecraft:red_wire"
+			icon: "minecraft:redstone"
 			x: 4.0
 			y: 1.0
 			description: [
@@ -93,7 +93,7 @@
 		{
 			id: "F7108A936D0E3201"
 			title: "The Four Presses"
-			icon: "ae2:inscription_press"
+			icon: "ae2:logic_processor_press"
 			x: 8.0
 			y: 0.0
 			description: [
@@ -112,7 +112,7 @@
 		{
 			id: "08219BA0471F4312"
 			title: "Growing Certus"
-			icon: "ae2:quartz_cluster_block"
+			icon: "ae2:quartz_cluster"
 			x: 8.0
 			y: 1.5
 			description: [
