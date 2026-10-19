@@ -11,7 +11,7 @@ none of the others.
 | --- | --- | --- |
 | `foldedhorizons` (core) | nothing | Pocket grid/registry/allocation, Breacher, Root Binder, Dimension-Gen, Temp Keys, wall blocks + chip mechanic, expansion, grace window, collapse watcher, game-event emission, built-in fallback owner list ("parties") for team identity, **StorageNetwork SPI (no default provider — Trade Post is AE2-only)** |
 | `foldedhorizons-ae2` | AE2 19.2.x, core | `AE2Bridge`, Trade Post ME backend (cross-dim remote grid access), ME-flavored Trade Post tooltips |
-| `foldedhorizons-gt` | GTCEu Modern 7.x, core | GT voltage-tier detection feeding expansion tokens, GT machine-framework registration helpers (controller/singleblock boilerplate), GT recipe hooks |
+| `foldedhorizons-gt` | GTCEu Modern 8.x, core | GT voltage-tier detection feeding expansion tokens, GT machine-framework registration helpers (controller/singleblock boilerplate), GT recipe hooks |
 | `foldedhorizons-ftb` | FTB Chunks + Teams, core | `FtbClaimAdapter` (auto-claim at materialization — manual claiming disabled inside pockets, no claim limit — auto-unclaim on collapse, re-register on conversion), team identity provider (FTB team UUIDs as registry keys), permanent chunk-loading via FTB |
 
 Each module is a separate NeoForge jar with its own

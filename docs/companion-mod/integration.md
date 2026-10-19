@@ -25,7 +25,7 @@ works with any backend; the AE2 module supplies the ME backend.
 - Build note: AE2 is a compile-time-only dependency;
   `AE2Bridge` is the only class importing `appeng.*`.
 
-## GTCEu Modern 7.x — what goes where
+## GTCEu Modern 8.x — what goes where
 
 **The machines ARE GTCEu machines.** Breacher, Root Binder, Dim-Gen
 and Trade Post use the GTCEu Modern machine framework — GT multiblock

@@ -3,7 +3,7 @@
 **Mod ID family:** `foldedhorizons` (core), `foldedhorizons-ae2`,
 `foldedhorizons-gt`, `foldedhorizons-ftb` (integration modules) ·
 **Target:** NeoForge 1.21.1 · **Companions (all optional at runtime):
-AE2 19.2.x, GTCEu Modern 7.x, KubeJS, FTB Chunks/Teams**
+AE2 19.2.x, GTCEu Modern 8.x, KubeJS, FTB Chunks/Teams**
 
 This directory is the **technical contract**: class names, data
 shapes, save format, tick logic, and build order. The gameplay
