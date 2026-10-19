@@ -22,8 +22,9 @@ becomes an issue when work starts.
    `ConversionTicker` + claim re-registration.
 7. Wall blocks + chip behavior + mod-shipped loot tables;
    iron/copper chunk items; verify 2×2-only opening.
-8. `DimensionGenMultiblock`: consumed-on-fire, meteorite template,
-   server cursor.
+8. `DimensionGenMultiblock` (GT multiblock, GT module): consumed-on-
+   fire, meteorite template, server cursor. Core ships a vanilla
+   stand-in block + BE so the jump works without GT.
 9. `TempKeyItem` tiers + breacher key slot + per-team unstable cursors
    + `UnstablePocketWatcher` collapse.
 10. `AE2Bridge`: node hosting, remote grid resolve, extract/insert

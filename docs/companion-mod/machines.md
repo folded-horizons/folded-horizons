@@ -3,6 +3,14 @@
 Class stubs live under
 `companion/src/main/java/dev/foldedhorizons/core/machine/`.
 
+**Blanket rule (decision #13): every multiblock and machine in this
+pack is a GT machine — GTCEu Modern framework, GT controller, casings,
+EU energy, tier gating. The only exception is AE2 machinery, which
+stays AE2-native.** The core mod currently ships vanilla-style stand-ins
+so the pocket system works standalone; the `foldedhorizons-gt` module
+re-homes every machine listed below onto the GTCEu framework (see
+[integration.md](integration.md#gtceu-modern-7x-what-goes-where)).
+
 ## Dimensional Breacher — GT multiblock (GTCEu framework)
 
 `machine/BreacherBlock` + `machine/BreacherBlockEntity`. Built on the
