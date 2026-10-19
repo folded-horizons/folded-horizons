@@ -10,7 +10,7 @@ Built and packaged with [Pakku](https://github.com/juraj-hrivnak/Pakku).
 
 - **Minecraft 1.21.1** · **NeoForge 21.1.65**
 - Export target: **CurseForge** (FTB suite is CF-only)
-- 26 pinned projects — see `pakku-lock.json`
+- Pinned projects: see `pakku-lock.json` (authoritative)
 
 ## The idea
 
@@ -31,11 +31,11 @@ Full gameplay design: [`docs/design/`](docs/design/)
 
 ## Mods
 
-The authoritative mod list is `pakku-lock.json` (26 projects,
-CurseForge-resolved) — kept out of this README on purpose so it never
-drifts. In short: GregTech CEu Modern backbone, Applied Energistics 2,
-FTB suite, Bonsai Trees, Farmer's Delight, storage mods, EMI/Sodium,
-plus the companion mod (built from `folded-horizons-core`).
+The authoritative mod list is `pakku-lock.json` — kept out of this
+README on purpose so it never drifts. In short: GregTech CEu Modern
+backbone, Applied Energistics 2, FTB suite, Bonsai Trees, Farmer's
+Delight, storage mods, EMI/Sodium, plus the companion mod (built from
+`folded-horizons-core`).
 
 ## Repository layout
 
@@ -43,8 +43,19 @@ plus the companion mod (built from `folded-horizons-core`).
 .devcontainer/           Java 21 + Pakku baked into the image
 pakku.json / pakku-lock.json   Pakku manifest & resolved lockfile
 overrides/               pack content: configs, FTB Quests chapters
-folded-horizons-core      companion mod source — separate repo (github.com/folded-horizons/folded-horizons-core)
+scripts/                 repo tooling (quest validator; run by CI)
 docs/                    design & development docs — start at docs/INDEX.md
+```
+
+Companion mods live in their own repositories under the
+[folded-horizons](https://github.com/orgs/folded-horizons/repositories)
+org:
+
+```
+folded-horizons-core     pocket system, machines, walls, registry
+folded-horizons-ae2      AE2 integration   (optional module)
+folded-horizons-gt       GTCEu integration (optional module)
+folded-horizons-ftb      FTB integration   (optional module)
 ```
 
 ## Working on the pack
@@ -76,20 +87,16 @@ Key conventions (see `docs/`):
 
 ## Roadmap
 
-Work tracking lives in the git issue tracker; the technical build
-order is in [`docs/companion-mod/build-order.md`](docs/companion-mod/build-order.md).
+**Work tracking lives in the git issue tracker** — these docs describe
+design intent, not status.
 
-Milestones:
-
-1. ✅ Companion mod core implementation (12-step build order, all 12 merged
-   and booting — `folded-horizons-core`)
-2. Optional modules: `-ae2` (ME-backed trade/tier), `-gt` (GT machine
-   framework + tier detection), `-ftb` (teams, claims, chunk loading)
-3. Pack-side content: KubeJS recipes, pack-specific datapack overrides
-4. Classic infinite-resource methods (lava/cobble gens, GT drilling)
-5. First exportable alpha (CurseForge format)
+Implemented so far: the companion mod core covers the whole technical
+build order (see [`docs/companion-mod/build-order.md`](docs/companion-mod/build-order.md)),
+with the FTB Quests book and quest validator in this repo.
 
 ## Dev container
 
 - Java 21 (SDKMAN) + Pakku 1.5.0 baked into the image
 - Port 25565 forwarded for local server testing
+- `python3 scripts/validate_quests.py` checks the FTB Quests files
+  (parses SNBT, verifies quest ids, dependencies, and item namespaces)
