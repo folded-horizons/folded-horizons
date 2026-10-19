@@ -81,10 +81,13 @@ order is in [`docs/companion-mod/build-order.md`](docs/companion-mod/build-order
 
 Milestones:
 
-1. Companion mod implementation (12-step build order)
-2. Pack-side content: KubeJS recipes, pack-specific datapack overrides
-3. Classic infinite-resource methods (lava/cobble gens, GT drilling)
-4. First exportable alpha (CurseForge format)
+1. ✅ Companion mod core implementation (12-step build order, all 12 merged
+   and booting — `folded-horizons-core`)
+2. Optional modules: `-ae2` (ME-backed trade/tier), `-gt` (GT machine
+   framework + tier detection), `-ftb` (teams, claims, chunk loading)
+3. Pack-side content: KubeJS recipes, pack-specific datapack overrides
+4. Classic infinite-resource methods (lava/cobble gens, GT drilling)
+5. First exportable alpha (CurseForge format)
 
 ## Dev container
 

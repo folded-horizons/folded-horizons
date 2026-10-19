@@ -25,3 +25,9 @@ Thumbs.db
 .modpack/
 *.zip
 /companion/
+
+# Node tooling (local agent helpers) — never repo content
+node_modules/
+package.json
+package-lock.json
+bili-proxy/
