@@ -65,18 +65,27 @@ Inscriber Presses, budding certus patch).
 
 ## Trade Post — cross-dimensional trading
 
-`machine/TradePostBlock` + `TradePostBlockEntity`. GT singleblock,
-needs EU power (config `tradePost.powerPerTrade`).
+`machine/TradePostBlock` + `TradePostBlockEntity`. GT singleblock, needs EU power (config `tradePost.powerPerTrade`).
+
+**Progression intent (user decision): the crate-based lobby handoff is how EARLY-GAME players trade.** A brand-new player in a starter cell has no AE2 network yet — but they can still visit the lobby, drop their offer into the post's crate, and take a standing deal. Storage-to-storage AE2-to-AE2 trading is the LATER upgrade that automates the same trades once both sides have networks. The Trade Post therefore works from day one of the lobby (crate-based), and gains network automation only when AE2 exists.
+
+**Cross-network storage-to-storage (AE2-only, `-ae2` module):** the direct AE2-to-AE2 handoff exists only when AE2 is installed; there is no remote chest/barrel fallback backend. Without AE2 the post is crate-based only (still fully usable).
 
 - **Owner link:** one-time bind to the owner's network anchor; the BE
   stores `linked_net: {dim, x, y, z}`, resolved lazily by the storage
   backend (see [integration.md](integration.md#ae2-192x)).
 - **Trades:** up to 9 standing trades, each
   `{ offer: item+count, want: item+count }`, configured in owner mode.
-- **Visitor flow:** the visitor confirms a trade while standing in
-  their own network's coverage; items move **storage-to-storage**
-  (AE2-to-AE2 via the `-ae2` module, chest-to-chest via core's plain
-  provider). Both legs staged, committed atomically — either both
-  move or neither. Energy drawn from the visitor's side.
+- **Visitor flow — crate-based (default, early-game):** the lobby's
+  input/output happens through physical crates/barrel blocks at the
+  Trade Post — the post has an input crate (visitor offers go in)
+  and an output crate (owner's goods come out), so trading works
+  from day one, no network required on either side. Both legs
+  staged, committed atomically — either both move or neither.
+- **Visitor flow — networked (upgrade, AE2-only):** once the visitor
+  has their own ME network, confirming a trade while standing in
+  its coverage moves items **storage-to-storage** (AE2-to-AE2 via
+  the `-ae2` module); the owner can restock output crates from their
+  network automatically. Energy drawn from the visitor's side.
 - Trades visible to everyone while powered; owner can disable
   individual trades or the whole post.

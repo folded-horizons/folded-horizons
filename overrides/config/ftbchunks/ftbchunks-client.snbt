@@ -5,11 +5,16 @@
 
 {
 	# How many chunks a player can claim (base + per-player progression).
-	# Keep generous late-game: strip-mining whole temporary dimensions needs claims.
-	"max_claimed_chunks": 512,
+	# Claim limits are DISABLED in this pack: permanent pocket spaces are
+	# auto-claimed by the Folded Horizons core mod at materialization with
+	# no limit; players never claim manually. Manual claims are still
+	# possible in overworld-like areas, so keep the ceiling generous.
+	"max_claimed_chunks": 2000,
 
 	# Team/chunk force-load limit for automation running while players are away.
-	"max_force_loaded_chunks": 64,
+	# Pockets are permanently chunk-loaded by the core mod itself, so the
+	# FTB limit only affects manual force-loading.
+	"max_force_loaded_chunks": 512,
 
 	# Allow non-team players to interact with blocks in claimed chunks?
 	# false = classic FTB protection (recommended for multiplayer).

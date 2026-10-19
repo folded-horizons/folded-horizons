@@ -71,7 +71,8 @@ there is no per-dimension storage to lose.
   `teams_per_ring` (config, default 8) — different teams strip
   different pockets without colliding.
 - Materialization: structure template placed at
-  `cellCenter`, `materialized=true`, claim registered for the owner,
+  `cellCenter`, `materialized=true`, claim registered for the owner
+  (auto-claim, see below), permanent chunk-loading ticket added,
   registry saved.
 
 ## Pocket behaviors
@@ -83,6 +84,17 @@ there is no per-dimension storage to lose.
 | UNSTABLE | dies on leave | spent on use | **last-player-leaves** | no |
 | SPECIAL | permanent | 1 per owner per body | never | yes |
 
+**Claiming (user decision): manual claiming is DISABLED inside pocket
+spaces.** All permanent pockets (ROOT, REPEATABLE, SPECIAL) are
+**auto-claimed at allocation** — the moment a cell materializes, its
+interior is claimed for the owner (player or team) with **no claim
+limit**, and is **permanently chunk-loaded**. Players can never claim
+or unclaim inside a pocket manually; the ClaimAdapter's claim call at
+materialization is the only path. This removes any FTB-claim bookkeeping
+from the player and matches the pack premise (your space, fully owned).
+Unstable pockets: claims collapse with the pocket (no separate handling
+— auto-claimed on materialize, auto-unclaimed by the collapse sweep).
+
 **Unstable collapse** — `UnstablePocketWatcher` (server tick, every
 20 t):
 
@@ -92,7 +104,8 @@ there is no per-dimension storage to lose.
    default 33³) to air, leaving the sky-block shell, then delete the
    registry entry.
 3. The spent cell is **never re-entered**; the team's per-tier cursor
-   already points to the next pocket. Optional FTB auto-unclaim.
+   already points to the next pocket. Claims removed by the sweep
+   (auto-unclaim).
 4. Crash-safe: mark the cell "dying" before the sweep, delete after;
    on restart, dying cells are re-swept.
 
